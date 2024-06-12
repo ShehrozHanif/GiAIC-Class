@@ -748,3 +748,46 @@ let paragraph = "i lovo myself"
 let input = "love"
 let ca = findSomething(paragraph,input)
 console.log(ca)
+
+
+// Let's start iteration
+
+for(let i =0; i <10; i++){
+    // console.log(i)
+}
+
+// Now we have to print table
+for(let i =1; i<=10; i++){
+    let num =3
+    // console.log(`${num} * ${i} = ${num*i}`)
+}
+
+// Now we have to convert the iteration into function
+function table(num:number):void{
+    for(let i =1; i<=10; i++){
+        console.log(`${num} * ${i} = ${num*i}`)
+    }
+    
+}
+
+// table(5)
+
+//While in loop
+
+// let condtion =10
+// while(condtion >0){
+//     console.log(`Countdown ${condtion}`)
+//     condtion--
+// }
+
+
+// how to access object though iteration
+let student:any ={
+    name:"SHEHROX",
+    age:25,
+    qualificaton:"Master"
+}
+
+for(let students in student){
+    console.log(student)
+}
