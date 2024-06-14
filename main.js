@@ -514,7 +514,7 @@ function findSomething(paragraph, input) {
 let paragraph = "i lovo myself";
 let input = "love";
 let ca = findSomething(paragraph, input);
-console.log(ca);
+// console.log(ca)
 // Let's start iteration
 for (let i = 0; i < 10; i++) {
     // console.log(i)
@@ -525,11 +525,11 @@ for (let i = 1; i <= 10; i++) {
     // console.log(`${num} * ${i} = ${num*i}`)
 }
 // Now we have to convert the iteration into function
-function table(num) {
-    for (let i = 1; i <= 10; i++) {
-        console.log(`${num} * ${i} = ${num * i}`);
-    }
-}
+// function table(num:number):void{
+//     for(let i =1; i<=10; i++){
+//         console.log(`${num} * ${i} = ${num*i}`)
+//     }
+// }
 // table(5)
 //While in loop
 // let condtion =10
@@ -538,12 +538,212 @@ function table(num) {
 //     condtion--
 // }
 // how to access object though iteration
-let student = {
-    name: "SHEHROX",
-    age: 25,
-    qualificaton: "Master"
+// let student:any ={
+//     name:"SHEHROX",
+//     age:25,
+//     qualificaton:"Master"
+// }
+// for(let students in student){
+//     console.log(student)
+// }
+// promise 
+let sirZiaPromise = new Promise((resolve, reject) => {
+    let done = true;
+    if (done) {
+        resolve;
+        console.log("kaam hogaya hai");
+    }
+    else {
+        reject;
+        console.log("Kaam abhi baki hai");
+    }
+});
+// sirZiaPromise.then((resolve)=>{console.log(resolve)})
+let orderPlace = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let check = true;
+            if (check) {
+                console.log("Order is plcae");
+                resolve("");
+            }
+            else {
+                console.log("shop is close");
+                reject("");
+            }
+        }, 5000);
+    });
 };
-for (let students in student) {
-    console.log(student);
-}
+let orderMaking = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("order is ready to prepare");
+            resolve("");
+        }, 2000);
+    });
+};
+let orderDeliver = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Order is deliver successfully");
+            resolve("");
+        }, 1000);
+    });
+};
+// orderPlace().then(orderMaking).then(orderDeliver)
+//we use new Promise to get rid of callback() Hell 
+// let try callback()
+let ask = (answer) => {
+    setTimeout(() => {
+        console.log("khana ban gaya hai?");
+        answer();
+    });
+};
+let answer1 = (finalCall) => {
+    setTimeout(() => {
+        console.log("10 minute lagegen");
+        finalCall();
+    }, 2000);
+};
+let finalCall1 = () => {
+    setTimeout(() => {
+        console.log("khana ban gaya hai");
+    }, 3000);
+};
+// ask(()=>answer1(finalCall1))
+// thats why we use new Promise to get rid of callback() hell
+let doTask = async () => {
+    await orderPlace();
+    await orderMaking();
+    await orderDeliver();
+};
+// doTask()
+// now we hvre to check through try and catch
+// let sirZiaPromise = new Promise((resolve, reject) => {
+//     resolve("Passed, got a level up."); 
+//     // reject("Failed and got a slipper"); // Uncomment this line to test the reject case
+// });
+// async function sirZiaPromiseStatus() { // Adding async makes a function asynchronous
+//     try {
+//         let status = await sirZiaPromise; // Waits for the response from sirZiaPromise to execute first
+//         console.log(status, "Try Block");
+//     } catch (error) {
+//         console.error("Catch Block", error);
+//     } finally {
+//         console.log("Finally Block");
+//     }
+// }
+// sirZiaPromiseStatus();
+//------------------------------------try & Catch----------------
+// let sirZiaPromise1 = new Promise((resolve, reject) => {
+//     // resolve("Passed, got a level up."); 
+//     // Uncomment the next line and comment out the resolve line to test the reject case
+//     reject("Failed and got a slipper");
+// });
+// async function sirZiaPromiseStatus() { 
+//     try {
+//         let status = await sirZiaPromise1; // Waits for the response from sirZiaPromise to execute first
+//         console.log(status, "Try Block");
+//     } catch (error) {
+//         console.error("Catch Block", error);
+//     } 
+// }
+// sirZiaPromiseStatus();
+// let khana = new Promise((resolve, reject) => {
+//     // resolve("khana pak gaya hai")
+//     reject("adha ghanta lagega")
+// })
+// async function check2() {
+//     try {
+//         let check3 = await khana;
+//         console.log(check3, "Ajao khane")
+//     } catch (error) {
+//         console.log("nhi paka hai", error)
+//     }
+// }
+// check2()
+// this is how try and catch work
+/*
+Write a simple asynchronous TypeScript function fetchGreeting that returns a
+greeting message after a 2-second delay using setTimeout.
+*/
+// let fetchGreeting =()=>{
+//     setTimeout(() => {
+//         console.log("Hello How are you")
+//     }, 2000);
+// }
+// fetchGreeting()
+let fetchGreeting = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Hello how are you?");
+            resolve("");
+        }, 2000);
+    });
+};
+// fetchGreeting().then((resolve)=>{console.log(resolve)})
+/**
+ Write a function simulateTask that simulates a task by logging "Task started",
+waits for 1 second, and then logs "Task completed". Use setTimeout for the delay.
+*/
+let simulateFunction = () => {
+    console.log("Task started");
+    setTimeout(() => {
+        console.log("Task Completed");
+    }, 1000);
+};
+// simulateFunction()
+/*
+Write a function fetchData that returns a Promise which resolves with the string
+"Data fetched successfully!" after a delay of 1 second.
+
+*/
+let fetchData = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Data fetched successfully");
+            resolve("");
+        }, 1000);
+    });
+};
+// fetchData().then((message)=>{console.log(message)})
+/*
+Write a function fetchWithError that returns a Promise. It should randomly either
+resolve with "Data fetched successfully!" or reject with "Data fetch failed!" after a
+delay of 1 second. Handle the rejection using .catch
+
+*/
+const fetchWithError = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() > 0.4) {
+                console.log("Data fetched successfully!");
+                resolve("");
+            }
+            else {
+                console.log("Data fetched failed");
+                reject("");
+            }
+        }, 1000);
+    });
+};
+// fetchWithError().then((message)=>{console.log(message)}).catch((err)=>{console.log(err)})
+/**
+ Write a function executeSequentially that executes two functions fetchData and
+processData sequentially using Promises, and logs the results in the order they are
+called.
+*/
+const executeSequentially = () => {
+    return new Promise((resolve) => {
+        console.log("Fetching Data");
+        resolve("");
+    });
+};
+const processData = () => {
+    return new Promise((resolve) => {
+        console.log("Processing Data");
+        resolve("");
+    });
+};
+executeSequentially().then(processData);
 export {};
