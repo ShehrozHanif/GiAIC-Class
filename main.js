@@ -673,25 +673,25 @@ greeting message after a 2-second delay using setTimeout.
 //     }, 2000);
 // }
 // fetchGreeting()
-let fetchGreeting = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("Hello how are you?");
-            resolve("");
-        }, 2000);
-    });
-};
+// let fetchGreeting = ()=>{
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("Hello how are you?")
+//             resolve("")
+//         }, 2000);
+//     })
+// }
 // fetchGreeting().then((resolve)=>{console.log(resolve)})
 /**
  Write a function simulateTask that simulates a task by logging "Task started",
 waits for 1 second, and then logs "Task completed". Use setTimeout for the delay.
 */
-let simulateFunction = () => {
-    console.log("Task started");
-    setTimeout(() => {
-        console.log("Task Completed");
-    }, 1000);
-};
+// let simulateFunction =()=>{
+//     console.log("Task started")
+//     setTimeout(() => {
+//         console.log("Task Completed")
+//     }, 1000);
+// }
 // simulateFunction()
 /*
 Write a function fetchData that returns a Promise which resolves with the string
@@ -706,27 +706,26 @@ let fetchData = () => {
         }, 1000);
     });
 };
-// fetchData().then((message)=>{console.log(message)})
+fetchData().then((message) => { console.log(message); });
 /*
 Write a function fetchWithError that returns a Promise. It should randomly either
 resolve with "Data fetched successfully!" or reject with "Data fetch failed!" after a
 delay of 1 second. Handle the rejection using .catch
 
 */
-const fetchWithError = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() > 0.4) {
-                console.log("Data fetched successfully!");
-                resolve("");
-            }
-            else {
-                console.log("Data fetched failed");
-                reject("");
-            }
-        }, 1000);
-    });
-};
+// const fetchWithError =()=>{
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if(Math.random()>0.4){
+//                 console.log("Data fetched successfully!")
+//                 resolve("")
+//             }else{
+//                 console.log("Data fetched failed")
+//                 reject("")
+//             }
+//         }, 1000);
+//     })
+// }
 // fetchWithError().then((message)=>{console.log(message)}).catch((err)=>{console.log(err)})
 /**
  Write a function executeSequentially that executes two functions fetchData and
