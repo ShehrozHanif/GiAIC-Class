@@ -511,3 +511,4 @@ console.log(response1.c3());
 let response2 = new l(dot.c2(), "widget");
 console.log(response2.c3());
 export {};
+//so thats it from oop
